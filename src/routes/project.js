@@ -125,8 +125,9 @@ router.delete('/:id', async (req, res) => {
 // Rota para adicionar uma nova tarefa a um projeto existente
 router.post('/:projectId/tasks', async (req, res) => {
     const { projectId } = req.params;
-    const { name, description } = req.body;
-
+    const { task } = req.body;
+    const { name, description } = task;
+    console.log(name, description);
     if (!name || !description) {
         return res.status(422).json({ error: 'Os campos nome e descrição são obrigatórios.' });
     };
